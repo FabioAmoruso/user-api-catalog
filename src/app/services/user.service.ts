@@ -14,17 +14,15 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // fetch users
-  getUsers(size: number = 10): Observable<any> {
+  getUsers(size: number = 10): Observable<Response> {
     return this.http.get<any>(`${this.apiUrl}?results=${size}`).pipe(
-      map(response => this.processResponse(response))
-    );
+      map(this.processResponse));
   }
 
   // fetch a user using the id.
-  getUserById(id: string): Observable<any> {
+  getUserById(id: string): Observable<Response> {
     return this.http.get<any>(`${this.apiUrl}?id=${id}`).pipe(
-      map(response => this.processResponse(response))
-    );
+      map(this.processResponse));
   }
 
   private processResponse(response: Response): Response {
