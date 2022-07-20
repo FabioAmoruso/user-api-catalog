@@ -1,6 +1,6 @@
 export interface Info {
     seed: string;
-    result: number;
+    results: number;
     page: number;
     version: string;
 }
